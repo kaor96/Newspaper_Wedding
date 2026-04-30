@@ -1,0 +1,74 @@
+# ============================================
+# Dependencies (regeneratable from package.json)
+# ============================================
+node_modules/
+.pnp/
+.pnp.js
+jspm_packages/
+
+# ============================================
+# Build outputs (regenerated from source)
+# ============================================
+build/
+dist/
+out/
+.next/
+.nuxt/
+.cache/
+*.tsbuildinfo
+
+# ============================================
+# Environment files (SECRETS — never commit!)
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# ============================================
+# Logs and debug files
+# ============================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ============================================
+# Editor/IDE files
+# ============================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# ============================================
+# OS junk files
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# Python (in case you build a Python project)
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+*.egg-info/
+
+# ============================================
+# Personal notes (optional — keep local only)
+# ============================================
+NOTES.md
+TODO-private.md
+scratch/
