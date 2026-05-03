@@ -23,6 +23,25 @@ Focus instead on: doing the actual job well, on one iPhone, connected to one WiF
 - **Hosting:** Runs locally only — opened in Safari, saved to iPhone Home Screen
 - **Other key libraries:** None — zero dependencies by design
 
+## Commands
+- **Dev:** Open `index.html` directly in Safari (no server, no build step)
+- **Build:** None
+- **Lint / format:** None
+- **Test on device:** Serve via `python -m http.server` on laptop, then open laptop's IP in iPhone Safari on same WiFi
+
+## Data model
+Stateless — no persisted data. Everything lives in the current session and is discarded after each print.
+
+In-session shape:
+```
+SelectedTemplate { id, name, mastheadFont, paperColor }
+GuestPhoto { dataUrl, cropOffset }
+Headline { text }
+```
+
+## Secrets / env
+None — no API keys, no env vars, no `.env` file. Fully offline app.
+
 ## Core features (v1)
 The smallest version that's actually useful to me. Build only these.
 - [ ] 3-step mobile flow: pick template → upload photo → edit headline → print
@@ -48,11 +67,19 @@ Saved here so I don't forget them, but don't build them yet.
 ## How I want to work with you (Claude Code)
 - Make small, focused changes I can review one at a time
 - After each working change, suggest a commit message and pause
-- Ask before adding new dependencies (npm packages, etc.)
+- Ask before adding new dependencies (this is a zero-dep project — the answer is almost always no)
 - Prefer simple, boring solutions over clever ones
-- If a task is ambiguous, ask ONE clarifying question rather than guessing
-- Match the existing code style already in the project
 - When you finish a task, briefly summarize what you changed
+- **When to ask vs. guess:**
+  - Ask before: changing print layout offsets, deleting/overwriting files, destructive git ops
+  - Just guess: file naming, where to put a new file, variable names, minor styling
+- **Code style:** match existing patterns in `index.html` and `print.css`. On day 1, follow Code conventions below.
+
+## Definition of done
+A task isn't done when the page loads — it's done when:
+- I can run the full 3-step flow on iPhone Safari without crashes
+- The print preview matches A4 dimensions and respects the pre-printed border offset
+- If you couldn't actually test on device, say so — don't claim success based on desktop preview alone
 
 ## Code conventions
 - File naming: kebab-case for files (`print.css`, `logo-gaceta.svg`)

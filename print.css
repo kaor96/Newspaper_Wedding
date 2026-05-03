@@ -1,0 +1,25 @@
+/* A4 print — full template scaled to page.
+   zoom: 2.21 maps the 360px design width to ~794px (210mm at 96dpi).
+   Calibrate against a real proof print if photo positioning is off. */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  body > *:not(#printSheet) { display: none !important; }
+
+  #printSheet {
+    display: block !important;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+  }
+
+  #printSheet .newspaper {
+    width: 360px;
+    height: 509px;
+    zoom: 2.21;
+  }
+}

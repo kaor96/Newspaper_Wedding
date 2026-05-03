@@ -1,0 +1,208 @@
+:root {
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --bg: #efece4;
+  --paper: #f9f6e8;
+  --tap: 44px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px calc(24px + env(safe-area-inset-bottom));
+}
+
+.step { display: none; }
+.step[data-active="true"] { display: block; }
+
+/* ── Step header ── */
+.stepHeader { margin-bottom: 20px; }
+.stepHeader h1 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-size: 15px;
+  padding: 0;
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* ── Template picker ── */
+.templateGrid {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+}
+
+.tplCardWrap {
+  width: 110px;
+  height: 155px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  border: 2px solid transparent;
+  background: transparent;
+  position: relative;
+  transition: border-color 0.12s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tplCardWrap:active { border-color: var(--ink); }
+
+.tplCardInner {
+  width: 360px;
+  height: 509px;
+  transform: scale(0.3056);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+/* ── Photo upload ── */
+.photoDrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border: 2px dashed #bbb;
+  min-height: 240px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.photoDrop.hasPhoto {
+  border-style: solid;
+  border-color: var(--ink);
+  background-size: cover;
+  background-position: center;
+  color: transparent;
+  min-height: 260px;
+}
+
+/* ── Buttons ── */
+.primaryBtn {
+  width: 100%;
+  min-height: var(--tap);
+  background: var(--ink);
+  color: #f9f6e8;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 14px;
+}
+.primaryBtn:disabled { opacity: 0.35; }
+.primaryBtn:active   { opacity: 0.8; }
+
+/* ── Preview ── */
+.previewWrap {
+  overflow: hidden;
+  margin-bottom: 10px;
+  touch-action: none;
+}
+.previewInner {
+  width: 360px;
+  transform-origin: top left;
+}
+
+/* ── Scale slider ── */
+.scaleControl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.scaleLabel {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.sliderWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.scaleIcon {
+  font-size: 20px;
+  color: var(--ink);
+  line-height: 1;
+  width: 20px;
+  text-align: center;
+  user-select: none;
+}
+.scaleSlider {
+  flex: 1;
+  height: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--ink);
+  outline: none;
+  cursor: pointer;
+}
+.scaleSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  background: var(--ink);
+  border-radius: 50%;
+}
+
+/* ── Drag hint ── */
+.dragHint {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* ── Headline input ── */
+.headlineInput {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 12px 14px;
+  border: 1px solid #bbb;
+  border-top: 2px solid var(--ink);
+  background: #fff;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 14px;
+  outline: none;
+}
+.headlineInput:focus { border-color: var(--ink); }
+
+/* ── Print sheet (hidden on screen) ── */
+#printSheet { display: none; }

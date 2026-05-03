@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Periódico de Boda</title>
+  <link rel="stylesheet" href="screen.css" />
+  <link rel="stylesheet" href="templates.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
+</head>
+<body>
+  <main id="app">
+
+    <!-- STEP 1: pick template -->
+    <section class="step" id="stepTemplate" data-active="true">
+      <header class="stepHeader">
+        <h1>Elegir periódico</h1>
+      </header>
+      <div class="templateGrid" id="templateGrid"></div>
+    </section>
+
+    <!-- STEP 2: upload photo -->
+    <section class="step" id="stepPhoto">
+      <header class="stepHeader">
+        <button class="backBtn" data-back="stepTemplate">&#8249; Atrás</button>
+        <h1>Foto del invitado</h1>
+      </header>
+      <label class="photoDrop" for="photoInput">
+        <span id="photoDropLabel">Tomar o elegir foto</span>
+        <input type="file" id="photoInput" accept="image/*" capture="environment" hidden />
+      </label>
+    </section>
+
+    <!-- STEP 3: adjust photo + headline + print -->
+    <section class="step" id="stepHeadline">
+      <header class="stepHeader">
+        <button class="backBtn" data-back="stepPhoto">&#8249; Atrás</button>
+        <h1>Ajustar y imprimir</h1>
+      </header>
+
+      <!-- Live newspaper preview (touch to pan photo) -->
+      <div class="previewWrap" id="previewWrap">
+        <div id="previewInner" class="previewInner"></div>
+      </div>
+
+      <p class="dragHint">Arrastra para reposicionar la foto</p>
+
+      <!-- Zoom slider -->
+      <div class="scaleControl">
+        <span class="scaleLabel">Zoom</span>
+        <div class="sliderWrap">
+          <span class="scaleIcon">&#8722;</span>
+          <input type="range" id="scaleSlider" class="scaleSlider" min="1" max="4" step="0.05" value="1" />
+          <span class="scaleIcon">+</span>
+        </div>
+      </div>
+
+      <!-- Optional custom headline -->
+      <input type="text" id="headlineInput" class="headlineInput" placeholder="Titular personalizado (opcional)…" />
+
+      <button class="primaryBtn" id="printBtn">Imprimir</button>
+    </section>
+
+  </main>
+
+  <div id="printSheet" aria-hidden="true"></div>
+
+  <script src="templates.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
