@@ -6,6 +6,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>Periódico de Boda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="screen.css" />
   <link rel="stylesheet" href="templates.css" />
   <link rel="stylesheet" href="print.css" media="print" />
@@ -21,46 +24,33 @@
       <div class="templateGrid" id="templateGrid"></div>
     </section>
 
-    <!-- STEP 2: upload photo -->
-    <section class="step" id="stepPhoto">
-      <header class="stepHeader">
-        <button class="backBtn" data-back="stepTemplate">&#8249; Atrás</button>
-        <h1>Foto del invitado</h1>
-      </header>
-      <label class="photoDrop" for="photoInput">
-        <span id="photoDropLabel">Tomar o elegir foto</span>
-        <input type="file" id="photoInput" accept="image/*" capture="environment" hidden />
-      </label>
-    </section>
-
-    <!-- STEP 3: adjust photo + headline + print -->
-    <section class="step" id="stepHeadline">
-      <header class="stepHeader">
-        <button class="backBtn" data-back="stepPhoto">&#8249; Atrás</button>
-        <h1>Ajustar y imprimir</h1>
-      </header>
-
-      <!-- Live newspaper preview (touch to pan photo) -->
-      <div class="previewWrap" id="previewWrap">
-        <div id="previewInner" class="previewInner"></div>
-      </div>
-
-      <p class="dragHint">Arrastra para reposicionar la foto</p>
-
-      <!-- Zoom slider -->
-      <div class="scaleControl">
-        <span class="scaleLabel">Zoom</span>
-        <div class="sliderWrap">
-          <span class="scaleIcon">&#8722;</span>
-          <input type="range" id="scaleSlider" class="scaleSlider" min="1" max="4" step="0.05" value="1" />
-          <span class="scaleIcon">+</span>
+    <!-- STEP 2: full-screen editor -->
+    <section class="step" id="stepEditor">
+      <div class="editorTopbar">
+        <button class="editorBack" id="editorBack">&#8249; Volver</button>
+        <span class="editorTitle" id="editorTitle"></span>
+        <div class="editorTopActions">
+          <button class="editorTemplatePrint" id="editorTemplatePrint">Sin foto</button>
+          <button class="editorPrint" id="editorPrint">Imprimir</button>
         </div>
       </div>
-
-      <!-- Optional custom headline -->
-      <input type="text" id="headlineInput" class="headlineInput" placeholder="Titular personalizado (opcional)…" />
-
-      <button class="primaryBtn" id="printBtn">Imprimir</button>
+      <div class="editorArticleBar" id="editorArticleBar" hidden>
+        <button class="eabBtn" id="eabFutbol" data-toggle="futbol">&#9917; F&uacute;tbol</button>
+        <button class="eabBtn eabActive" id="eabVip" data-toggle="vip">&#11088; VIP</button>
+      </div>
+<div class="editorCanvas" id="editorCanvas">
+        <div id="editorNewspaper"></div>
+      </div>
+      <input type="file" id="editorPhotoInput" accept="image/*" hidden />
+      <div class="editorBottomBar" id="photoControls" hidden>
+        <button class="bbBtn" id="photoChangeBtn">&#128247; Cambiar foto</button>
+        <div class="bbDivider"></div>
+        <div class="bbZoom">
+          <button class="bbBtn bbZoomBtn" id="scaleDown">&#8722;</button>
+          <span class="bbZoomLabel" id="scaleLabel">100%</span>
+          <button class="bbBtn bbZoomBtn" id="scaleUp">&#43;</button>
+        </div>
+      </div>
     </section>
 
   </main>

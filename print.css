@@ -1,25 +1,92 @@
-/* A4 print — full template scaled to page.
-   zoom: 2.21 maps the 360px design width to ~794px (210mm at 96dpi).
-   Calibrate against a real proof print if photo positioning is off. */
+/* Photo position on the physical pre-printed A4 sheet.
+   These are set by JS before each print from the selected template's photoPrint values.
+   Edit the numbers in templates.js to calibrate — use the "Calibrar" button to test. */
+:root {
+  --photo-top:    85mm;
+  --photo-left:   78mm;
+  --photo-width:  59mm;
+  --photo-height: 98mm;
+}
 
 @page {
-  size: A4;
+  size: A4 portrait;
   margin: 0;
 }
 
 @media print {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
   body > *:not(#printSheet) { display: none !important; }
 
   #printSheet {
     display: block !important;
+    position: relative;
     width: 210mm;
     height: 297mm;
     overflow: hidden;
+    background: white;
   }
 
-  #printSheet .newspaper {
-    width: 360px;
-    height: 509px;
-    zoom: 2.21;
+  /* Template-only print — full newspaper scaled to A4, no guest photo */
+  .print-template {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(2.205);
+    transform-origin: top left;
+  }
+
+  /* Hide the camera placeholder; leave photo slot as a blank guide box */
+  .print-template .photo-ph { display: none !important; }
+  .print-template .photo-slot { background: #ede9de; }
+
+  /* Normal print — just the photo */
+  .print-photo {
+    position: absolute;
+    top: var(--photo-top);
+    left: var(--photo-left);
+    width: var(--photo-width);
+    height: var(--photo-height);
+    object-fit: cover;
+  }
+
+  /* Calibration print — red outline box, no fill */
+  .print-calib-label {
+    position: absolute;
+    top: 6mm;
+    left: 8mm;
+    font-size: 8pt;
+    font-family: monospace;
+    color: red;
+    letter-spacing: 1px;
+  }
+
+  .print-calib-box {
+    position: absolute;
+    top: var(--photo-top);
+    left: var(--photo-left);
+    width: var(--photo-width);
+    height: var(--photo-height);
+    border: 1pt solid red;
+    box-sizing: border-box;
+  }
+
+  .print-calib-dims {
+    position: absolute;
+    top: calc(var(--photo-top) + var(--photo-height) + 3mm);
+    left: var(--photo-left);
+    font-size: 7pt;
+    font-family: monospace;
+    color: red;
+    white-space: nowrap;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }
