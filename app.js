@@ -82,7 +82,7 @@ function openEditor(template) {
   state.articleToggle  = 'vip';
   $('editorTitle').textContent = template.name;
   $('photoControls').removeAttribute('hidden');
-  if (template.id === 'comercio') {
+  if (template.id === 'comercio' || template.id === 'nytimes') {
     $('editorArticleBar').removeAttribute('hidden');
     syncArticleBar();
   } else {

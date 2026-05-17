@@ -133,69 +133,108 @@ const TEMPLATES = [
   {
     id: 'nytimes',
     name: 'The New York Times',
-    defaultHeadline: 'Titular de ejemplo para The New York Times',
     photoPrint: { top: 67, left: 139, width: 60, height: 105 },
     defaults: {
-      headline: 'Titular de ejemplo para The New York Times',
-      caption:  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      headline: 'Local Guest Photographed at Historic Quito Wedding',
+      caption:  'Kevin & Karie · May 29, 2026 · Quito, Ecuador'
     },
-    render(photoUrl, edits = {}) {
+    articles: {
+      futbol: {
+        hl:     'Former Near-Pro Footballer Ends Decade of Self-Imposed Retirement for One Historic Evening',
+        sub:    'In what analysts are calling the comeback of the season, a guest whose career peaked between fourteen and nineteen makes his long-awaited reappearance',
+        byline: 'By Our Sports Correspondent &middot; Nostalgia Section',
+        col1:   `<p class="nyt-body-p nyt-body-p-first"><span class="nyt-dropcap">I</span>N what experts are describing as &ldquo;the comeback most anticipated since the last comeback nobody anticipated,&rdquo; this guest &mdash; whose football career burned bright somewhere between the ages of fourteen and nineteen before the universe made other arrangements &mdash; has confirmed his attendance at the wedding of Kevin and Karie, ending years of quiet, self-imposed retirement from social sporting events.</p><p class="nyt-body-p">A knee, an insufficiently visionary coach, or simply reality, thought differently. He has not specified which. He has, however, specified that he still has what it takes, and plans to demonstrate this on the dance floor before the evening is out.</p>`,
+        col2:   `<p class="nyt-body-p">&ldquo;I would have gone far,&rdquo; he told no one in particular earlier this week. &ldquo;The referee simply had it out for me.&rdquo; He is expected to repeat this assessment several times during the reception dinner, at increasing volume.</p><p class="nyt-body-p">He arrives with a pre-existing injury he intends to discuss at considerable length. An informal match has been proposed for &ldquo;after the cake, for those who know what they&rsquo;re doing.&rdquo; The groom has quietly requested a first-aid kit within reach. The bride has declined to comment.</p>`,
+      },
+      vip: {
+        hl:     'Guest\'s Arrival Halts Conversations, Redirects Attention Across the Venue',
+        sub:    'Witnesses confirm the entrance was, technically, quiet &mdash; the outfit decidedly was not',
+        byline: 'By Our Fashion Correspondent &middot; Quito Bureau',
+        col1:   `<p class="nyt-body-p nyt-body-p-first"><span class="nyt-dropcap">Q</span>UITO, Ecuador &mdash; The arrival was, technically, quiet. The outfit was not. Witnesses described the ensemble as &ldquo;another level entirely,&rdquo; generating an immediate wave of speculation. Exclusive sources confirm the piece was designed specifically for her, commissioned months in advance.</p><p class="nyt-body-p">Sectors of organized gossip suggest the order arrived in a bag with standard twelve-day shipping. The truth, as always, remains with those who were present. They are not talking.</p>`,
+        col2:   `<p class="nyt-body-p">What is confirmed by sources of absolute reliability is that the outfit is completely legitimate, that it looks exactly as it should, and that the real moment has not yet arrived. Those who know her understand that the dance floor is where this story finishes telling itself.</p><p class="nyt-body-p">The arrival generated immediate applause from all quarters. No further comment was available by press time. What happens on the dance floor is expected to be well-documented.</p>`,
+      },
+    },
+    render(photoUrl, edits = {}, articleToggle = 'futbol') {
       const photo   = photoUrl ? `<img class="photo-img" src="${photoUrl}" alt="" />` : PHOTO_PH;
       const hl      = esc(edits.headline || this.defaults.headline);
       const caption = esc(edits.caption  || this.defaults.caption);
-      const f = FILLER.repeat(5);
+      const a       = this.articles[articleToggle] || this.articles.futbol;
       return `
         <div class="newspaper tpl-nytimes">
-          <div class="nyt-top">
-            <span>All the News That&rsquo;s Fit to Print</span>
-            <span>May 29, 2026</span>
+
+          <div class="nyt-topbar">
+            <span class="nyt-motto">&ldquo;All the News That&rsquo;s Fit to Print&rdquo;</span>
+            <span class="nyt-late-ed">Late Edition</span>
           </div>
-          <div class="nyt-r"></div>
-          <div class="nyt-rh"></div>
-          <div class="nyt-masthead">The New York Times</div>
-          <div class="nyt-rh"></div>
-          <div class="nyt-r"></div>
-          <div class="nyt-meta">
-            <span>VOL. CLIV . . . No. 40,340</span>
+          <div class="nyt-hrule nyt-hrule-thick"></div>
+          <img class="nyt-masthead" src="TNYT.png" alt="The New York Times" />
+          <div class="nyt-hrule nyt-hrule-thick"></div>
+          <div class="nyt-metabar">
+            <span>VOL. CLIV&nbsp;.&nbsp;.&nbsp;.&nbsp;No.&nbsp;40,340</span>
             <span>FRIDAY, MAY 29, 2026</span>
             <span>$4.00</span>
           </div>
-          <div class="nyt-r"></div>
-          <div class="nyt-sp"></div>
-          <div class="nyt-hl" data-editable="headline">${hl}</div>
-          <div class="nyt-r"></div>
-          <div class="nyt-body">
-            <div class="nyt-body-left">
-              <div class="nyt-txt-col">
-                <div class="nyt-col-head">Lorem ipsum dolor sit.</div>
-                <div class="nyt-col-text">${f}</div>
-              </div>
-              <div class="nyt-txt-col">
-                <div class="nyt-col-head">Consectetur adipiscing.</div>
-                <div class="nyt-col-text">${f}</div>
+          <div class="nyt-hrule"></div>
+
+          <div class="nyt-upper">
+            <div class="nyt-mainstory">
+              <div class="nyt-main-hl">${esc(a.hl)}</div>
+              <div class="nyt-main-sub">${a.sub}</div>
+              <div class="nyt-hrule"></div>
+              <div class="nyt-byline-row">${a.byline}</div>
+              <div class="nyt-mainstory-cols">
+                <div class="nyt-mainstory-col">${a.col1}</div>
+                <div class="nyt-vcol-rule"></div>
+                <div class="nyt-mainstory-col">${a.col2}</div>
               </div>
             </div>
-            <div class="nyt-body-right">
-              <div class="photo-slot">${photo}</div>
-              <div class="nyt-caption" data-editable="caption">${caption}</div>
+            <div class="nyt-vcol-rule"></div>
+            <div class="nyt-photocol">
+              <div class="nyt-photocol-hl" data-editable="headline">${hl}</div>
+              <div class="nyt-hrule"></div>
+              <div class="photo-slot nyt-photo-slot">${photo}</div>
+              <div class="nyt-photocol-caption" data-editable="caption">${caption}</div>
             </div>
           </div>
-          <div class="nyt-r"></div>
+
+          <div class="nyt-hrule"></div>
+
           <div class="nyt-lower">
             <div class="nyt-lower-col">
-              <div class="nyt-lower-head">Lorem ipsum dolor.</div>
-              <div class="nyt-lower-text">${f}</div>
+              <div class="nyt-col-hl">Labrador Maintains Full Napping Schedule; Cookie Intake Rises Sharply</div>
+              <div class="nyt-byline-row">Canine Correspondent &middot; Domestic</div>
+              <div class="nyt-hrule"></div>
+              <img class="nyt-tove" src="tove.jpg" alt="Tove" />
+              <p class="nyt-body-p nyt-body-p-first">Sources confirm that Tove, a yellow Labrador retriever, has made zero adjustments to her established schedule in light of today&rsquo;s events. The program &mdash; developed over years of careful iteration &mdash; consists of sleeping, consuming snacks, and situating herself atop any seated person within range. She was unavailable for comment. She was sleeping.</p>
             </div>
+            <div class="nyt-vcol-rule"></div>
             <div class="nyt-lower-col">
-              <div class="nyt-lower-head">Consectetur adipiscing.</div>
-              <div class="nyt-lower-text">${f}</div>
-            </div>
-            <div class="nyt-lower-col">
-              <div class="nyt-lower-head">Sed do eiusmod.</div>
-              <div class="nyt-lower-text">${f}</div>
+              <div class="nyt-col-hl">Tonight&rsquo;s Bar Report</div>
+              <div class="nyt-byline-row">Beverages Correspondent &middot; Special Report</div>
+              <div class="nyt-hrule"></div>
+              <div class="nyt-drink-item">
+                <div class="nyt-drink-name">Vodka &middot; &ldquo;Amor Delirante&rdquo;</div>
+                <div class="nyt-drink-desc">Smooth, elegant, and responsible for at least three declarations nobody remembers making.</div>
+              </div>
+              <div class="nyt-drink-item">
+                <div class="nyt-drink-name">Tequila &middot; &ldquo;Blue Margarita&rdquo;</div>
+                <div class="nyt-drink-desc">Activates dance floor instincts. Consume with caution and appropriate footwear.</div>
+              </div>
+              <div class="nyt-drink-item nyt-drink-last">
+                <div class="nyt-drink-name">Ron &middot; &ldquo;Mojito&rdquo;</div>
+                <div class="nyt-drink-desc">Innocent in appearance. Always first to arrive and last to leave. With mint, without regrets.</div>
+              </div>
+              <div class="nyt-hrule" style="margin:4px 0"></div>
+              <p class="nyt-body-p nyt-body-p-first">Today, May 29, 2026, The New York Times joins Kevin and Karie in celebrating one of the most anticipated moments of the year. This edition stands as a testament to a day that their families, friends, and one Labrador who preferred not to comment, will remember forever.</p>
+              <p class="nyt-body-p">May this union be filled with love, laughter, and enough energy to endure Tove on the sofa for many years to come. &mdash; <em>The Editors</em></p>
             </div>
           </div>
-          <div class="nyt-venue">Venue Photo</div>
+
+          <div class="nyt-footer-bar">
+            <span>Kevin &amp; Karie &middot; Wedding Edition &middot; May 29, 2026</span>
+            <span class="nyt-page-tag">A1</span>
+          </div>
+
         </div>`;
     }
   }
