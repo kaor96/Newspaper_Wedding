@@ -22,7 +22,7 @@ const TEMPLATES = [
         hl:    'Exceso de Talento Frustrado: El Casi-Futbolista Sale de su Retiro',
         subhl: 'Un hombre que "casi llegó" al fútbol profesional reaparece por primera vez desde que la vida tomó otras decisiones por él',
         byline:'POR NUESTRO CRONISTA DEPORTIVO · SECCIÓN NOSTALGIA',
-        body:  'En lo que expertos califican como "el regreso más esperado desde el último regreso que nadie esperaba," este invitado a la boda de Kevin y Karie ha confirmado su asistencia, poniendo fin a años de retiro silencioso y autoimpuesto. Se trata de un hombre que, entre los 14 y los 19 años, estuvo convencido de que el fútbol profesional era su destino. Una rodilla, un entrenador poco visionario, o simplemente la realidad, pensaron diferente.',
+        body:  'En lo que expertos califican como "el regreso más esperado desde el último regreso que nadie esperaba," este invitado a la boda de Kevin y Karie ha confirmado su asistencia, poniendo fin a años de retiro silencioso y autoimpuesto. Se trata de un hombre que, hasta el día de hoy, sigue completamente convencido de que el fútbol profesional es su destino. Una rodilla, un entrenador poco visionario, o simplemente la realidad, pensaron diferente. Las siguientes son declaraciones que se repetia en cada partido.',
         pq:    '"Yo habría llegado lejos. Lo que pasa es que el árbitro siempre me tenía pica."',
         body3: 'Este distinguido asistente planea demostrar que aún tiene lo que se necesita durante el baile, y no descarta organizar un partido informal "solo para los que saben jugar." Llegará con una lesión preexistente de la que hablará durante toda la cena. La novia ha declinado comentar. El novio ha pedido que alguien tenga a mano un botiquin.',
       },
@@ -34,6 +34,24 @@ const TEMPLATES = [
         body2: 'Sin embargo, sectores del chisme organizado apuntan a que el pedido llegó en una bolsa de Temu con envío estándar de doce días. La verdad, como siempre, permanece en manos de quienes estuvieron presentes — y ellas no están hablando.',
         pq:    '"No voy a decir nada. Solo que cuando apareció, todos voltearon. Todos." — Testigo presencial que pidió reserva de identidad',
         body3: 'Lo que sí está confirmado por fuentes de absoluta confianza es que el outfit es completamente legítimo, que luce exactamente como debe lucir, y que el verdadero momento todavía no ha llegado. Quienes la conocen saben que la pista de baile es donde esta historia termina de contarse — y que lo que viene no tiene nombre aún, pero lo tendrá.',
+      },
+      sobriety: {
+        hl:    'Invitado Local Jura No Beber Esta Noche — Sus Amigos No Le Creen',
+        subhl: 'Un bar abierto se interpone entre él y sus sueños.',
+        byline:'POR NUESTRA CORRESPONSAL SOCIAL · QUITO, ECUADOR',
+        body:  'En una declaración que dejó atónitos a sus amigos, incluido a los novios, y provocó la carcajada de al menos un bartender, un invitado a la boda anunció esta mañana que no bebería esta noche. Ni una sola gota. Lo dijo muy en serio. Once minutos después de llegar, ya estaba en el bar. Los testigos confirman que fue un doble.',
+        body2: 'Quienes lo conocen bien describen a un hombre de grandes intenciones y una sed aún más grande, alguien que ha hecho esta misma promesa en bodas, cumpleaños, y al menos una fiesta de oficina de la que nadie habla ya.',
+        pq:    '"Hasta él mismo ya no se cree. Pero lo dice con confianza." — Un amigo de toda la vida',
+        body3: 'La pista de baile también corre grave peligro. El invitado ha declarado públicamente que "no baila." El DJ ha sido informado. Al cierre de esta edición, fue visto estudiando el menú de cócteles con una concentración que no corresponde a alguien que supuestamente no prometió nada a nadie. ¿Logrará mantenerse sobrio? Con un bar abierto y personas que no ha visto en años — esta redacción le desea toda la suerte del mundo. La va a necesitar.',
+      },
+      fashion: {
+        hl:    'Pareja Famosa Deslumbra en la Boda del Año — El Misterio del Outfit Se Profundiza',
+        subhl: 'Temu no ha respondido a solicitudes de comentario.',
+        byline:'POR NUESTRA CORRESPONSAL DE MODA · QUITO, ECUADOR',
+        body:  'Una pareja famosa fue vista anoche en la boda más comentada de la temporada, y no llegaron para pasar desapercibidos. Los expertos de moda presentes reaccionaron de inmediato, describiendo sus atuendos como "piezas claramente originales," "de confección magistral," y "obra de un diseñador visionario."',
+        body2: 'Sin embargo, rumores que circulan entre las mesas del fondo cuentan una historia muy diferente. Múltiples fuentes aseguran que los mismos atuendos están disponibles en Temu con envío estándar gratuito — y que el pedido fue realizado el día anterior a la boda.',
+        pq:    '"Se veían increíbles. Eso es lo único que importa." — Testigo que prefirió no profundizar en el tema',
+        body3: 'La pareja ha declinado comentar. Se veían increíbles de todas formas. La verdadera pregunta que todos se hacen no es de dónde vienen los atuendos — sino si sobrevivirán la pista de baile esta noche. La política de devoluciones de Temu ha sido revisada. Por si acaso.',
       },
     },
     render(photoUrl, edits = {}, articleToggle = 'vip') {
@@ -101,11 +119,11 @@ const TEMPLATES = [
               <div class="com-tove-inner">
                 <img class="com-tove-photo" src="tove.jpg" alt="Tove" />
                 <div class="com-tove-text">
-                  <div class="com-tove-hl">Tove Sigue Durmiendo y Come Galletas Sin Disculparse</div>
+                  <div class="com-tove-hl">Tove Sigue Durmiendo y Come Galletas Sin Parar</div>
                   <div class="com-tove-subhl">La labrador contin&uacute;a su agenda de siestas; los planes de reforma no avanzan</div>
                   <div class="com-tove-byline">CORRESPONSAL CANINO &middot; SECCI&Oacute;N SOCIEDAD</div>
-                  <div class="com-tove-body">Fuentes confirman que Tove, labrador retriever amarilla, mantiene sin alteraciones su programa: dormir, comer galletas, y lanzarse encima de cualquier persona que tenga la ingenuidad de sentarse cerca de ella. Interrogada sobre si planea modificar su conducta con motivo de la boda, Tove no respondi&oacute;. Suspir&oacute; con profunda satisfacci&oacute;n existencial y continu&oacute; durmiendo.</div>
-                  <div class="com-tove-closing">No estuvo disponible para declaraciones. Estaba durmiendo.</div>
+                  <div class="com-tove-body">Fuentes confirman que Tove, labrador retriever amarilla, mantiene sin alteraciones su programa: dormir, comer galletas, y lanzarse encima de cualquier persona que tenga la ingenuidad de sentarse cerca de ella. Interrogada sobre si planea modificar su conducta, Tove no respondi&oacute;. Suspir&oacute; con profunda satisfacci&oacute;n existencial y continu&oacute; durmiendo.</div>
+                  <div class="com-tove-closing">No estuvo disponible para declaraciones.</div>
                 </div>
               </div>
             </div>
@@ -152,6 +170,27 @@ const TEMPLATES = [
         byline: 'By Our Fashion Correspondent &middot; Quito Bureau',
         col1:   `<p class="nyt-body-p nyt-body-p-first"><span class="nyt-dropcap">Q</span>UITO, Ecuador &mdash; The arrival was, technically, quiet. The outfit was not. Witnesses described the ensemble as &ldquo;another level entirely,&rdquo; generating an immediate wave of speculation. Exclusive sources confirm the piece was designed specifically for her, commissioned months in advance.</p><p class="nyt-body-p">Sectors of organized gossip suggest the order arrived in a bag with standard twelve-day shipping. The truth, as always, remains with those who were present. They are not talking.</p>`,
         col2:   `<p class="nyt-body-p">What is confirmed by sources of absolute reliability is that the outfit is completely legitimate, that it looks exactly as it should, and that the real moment has not yet arrived. Those who know her understand that the dance floor is where this story finishes telling itself.</p><p class="nyt-body-p">The arrival generated immediate applause from all quarters. No further comment was available by press time. What happens on the dance floor is expected to be well-documented.</p>`,
+      },
+      fashion: {
+        hl:     'Famous Couple Spotted at Wedding of the Year',
+        sub:    'Temu has not responded to requests for comment.',
+        byline: 'By Our Style Correspondent &middot; Quito Bureau',
+        col1:   `<p class="nyt-body-p nyt-body-p-first"><span class="nyt-dropcap">A</span> FAMOUS couple was spotted last night attending the most talked-about wedding of the season, and they did not come to go unnoticed. Fashion experts on the scene were quick to react, describing their outfits as &ldquo;clearly original pieces,&rdquo; &ldquo;masterfully crafted,&rdquo; and &ldquo;the work of a visionary designer.&rdquo;</p><p class="nyt-body-p">Photographers fought for position. The couple moved through the venue with the serene confidence of two people who know exactly what they are doing and would like others to know it as well.</p>`,
+        col2:   `<p class="nyt-body-p">However, rumors emerging from the back tables tell a very different story. Multiple sources claim the exact same outfits are currently available on Temu with free standard shipping &mdash; and that the order was placed the day before the wedding.</p><p class="nyt-body-p">The couple has declined to comment. They looked amazing either way. The real question on everyone&rsquo;s mind is not where the outfits came from &mdash; but whether they will survive the dance floor tonight. Temu&rsquo;s return policy has been reviewed. Just in case.</p>`,
+      },
+      galapagos: {
+        hl:     'Family Survives Galapagos Trip; Barely',
+        sub:    'No penguins were harmed. The sunscreen supply was not so lucky.',
+        byline: 'By Our Travel Correspondent &middot; Pacific Islands Bureau',
+        col1:   `<p class="nyt-body-p nyt-body-p-first"><span class="nyt-dropcap">G</span>AL&Aacute;PAGOS ISLANDS, Ecuador &mdash; In what experts are calling &ldquo;a bold pre-wedding decision,&rdquo; the bride&rsquo;s family traveled to the Gal&aacute;pagos Islands days before the ceremony, returning sunburned, overwhelmed, and somehow more excited than when they left.</p><p class="nyt-body-p">The group reportedly applied sunscreen at levels not seen since the invention of sunscreen. Dermatologists described the effort as &ldquo;heroic,&rdquo; adding that the dresses will be fine, probably, and that aloe vera was likely involved.</p>`,
+        col2:   `<p class="nyt-body-p">Wildlife encounters were reported throughout the trip. However, in a development that surprised many, no penguins attacked anyone. Not a single one. The penguins, known for their bold personalities and complete disregard for personal space, reportedly made eye contact and moved on. Authorities consider this a miracle.</p><p class="nyt-body-p">The family has since arrived at the wedding venue, fully hydrated, and ready to dance. The penguins were not invited. They did not take it well.</p>`,
+      },
+      sobriety: {
+        hl:     'Local Guest Vows Sobriety Tonight - Sources Are Not Convinced',
+        sub:    'An open bar stands between him and his dreams.',
+        byline: 'By Our Social Correspondent &middot; Quito Bureau',
+        col1:   `<p class="nyt-body-p nyt-body-p-first"><span class="nyt-dropcap">Q</span>UITO, Ecuador &mdash; In a statement that stunned friends, included the newlyweds, and caused at least one bartender to laugh out loud, a wedding guest announced earlier today that he would not be drinking tonight. Not a single drop. He was very clear about this.</p><p class="nyt-body-p">He was at the bar eleven minutes after arriving. Witnesses confirm it was a double.</p><p class="nyt-body-p">Those close to the guest describe a man of great intentions and even greater thirst </p>`,
+        col2:   `<p class="nyt-body-p">The dance floor, sources say, is also at serious risk. The guest has publicly stated he &ldquo;doesn&rsquo;t really dance.&rdquo; The DJ has been warned.</p><p class="nyt-body-p">At press time, the guest was seen studying the cocktail menu with the focus and dedication of a man who had definitely not promised anything to anyone. The open bar was unavailable for comment. It was very busy.</p><p class="nyt-body-p">Will he achieve sobriety tonight? With an open bar, a live band, and people he hasn&rsquo;t seen in years &mdash; this publication wishes him nothing but luck. He is going to need all of it.</p>`,
       },
     },
     render(photoUrl, edits = {}, articleToggle = 'futbol') {
@@ -225,8 +264,8 @@ const TEMPLATES = [
                 <div class="nyt-drink-desc">Innocent in appearance. Always first to arrive and last to leave. With mint, without regrets.</div>
               </div>
               <div class="nyt-hrule" style="margin:4px 0"></div>
-              <p class="nyt-body-p nyt-body-p-first">Today, May 29, 2026, The New York Times joins Kevin and Karie in celebrating one of the most anticipated moments of the year. This edition stands as a testament to a day that their families, friends, and one Labrador who preferred not to comment, will remember forever.</p>
-              <p class="nyt-body-p">May this union be filled with love, laughter, and enough energy to endure Tove on the sofa for many years to come. &mdash; <em>The Editors</em></p>
+              <p class="nyt-body-p nyt-body-p-first">Today, May 29, 2026, The New York Times joins Kevin and Karie in celebrating one of the most anticipated moments of the year. This edition stands as a testament to a day that their families and friends, will remember forever.</p>
+              <p class="nyt-body-p">May this union be filled with love, laughter, and enough energy to take care of Tove for many years to come.</em></p>
             </div>
           </div>
 

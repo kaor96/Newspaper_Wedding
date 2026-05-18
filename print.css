@@ -31,12 +31,12 @@
     background: white;
   }
 
-  /* Template-only print — full newspaper scaled to A4, no guest photo */
+  /* Template-only print — scaled to fit within printer's printable area (~5mm margins) */
   .print-template {
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: scale(2.205);
+    top: 7mm;
+    left: 5mm;
+    transform: scale(2.1);
     transform-origin: top left;
   }
 

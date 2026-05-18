@@ -142,7 +142,7 @@
 
 /* A. Photo zone — 40% of left col height */
 .com-photo-zone {
-  flex: 0 0 40%;
+  flex: 0 0 48%;
   border-bottom: 1px solid #ccc;
   overflow: hidden;
 }
@@ -244,7 +244,7 @@
 
 .com-hl {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.15;
   color: #111;
@@ -358,7 +358,7 @@
 
 .com-tove-hl {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 6.2px;
+  font-size: 6px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1px;
@@ -366,7 +366,7 @@
 
 .com-tove-subhl {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 4.5px;
+  font-size: 4.2px;
   font-style: italic;
   color: #444;
   border-bottom: 1px solid #ccc;
@@ -386,7 +386,7 @@
 
 .com-tove-body {
   font-family: 'Libre Baskerville', Georgia, serif;
-  font-size: 3.5px;
+  font-size: 3.8px;
   line-height: 1.4;
   text-align: justify;
   color: #222;
@@ -395,7 +395,7 @@
 
 .com-tove-closing {
   font-family: 'Libre Baskerville', Georgia, serif;
-  font-size: 4px;
+  font-size: 3.5px;
   font-style: italic;
   color: #555;
   margin-top: 2px;
@@ -621,14 +621,14 @@
 /* ── Upper body: main story (2/3) + photo col (1/3) ── */
 .nyt-upper {
   display: flex;
-  height: 200px;
+  height: 215px; /*to increase first row height */
   overflow: hidden;
   flex-shrink: 0;
   margin-top: 3px;
 }
 
 .nyt-mainstory {
-  flex: 1.5;
+  flex: 2;
   overflow: hidden;
   padding-right: 1px;
   display: flex;
@@ -637,7 +637,7 @@
 
 .nyt-main-hl {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.15;
   color: #000;
@@ -665,11 +665,11 @@
 .nyt-mainstory-col {
   flex: 1;
   overflow: hidden;
-  padding-right: 5px;
+  padding-right: 4px;
 }
 .nyt-mainstory-col + .nyt-mainstory-col {
-  padding-right: 0;
-  padding-left: 5px;
+  padding-right: 10px;
+  padding-left: 9px;
 }
 
 .nyt-photocol {
@@ -713,13 +713,14 @@
 .nyt-lower-col {
   flex: 1;
   overflow: hidden;
-  padding-right: 6px;
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
 }
+.nyt-lower-col:first-child { flex: 0.75; }
 .nyt-lower-col + .nyt-lower-col {
-  padding-right: 0;
-  padding-left: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .nyt-col-hl {
@@ -733,21 +734,22 @@
 }
 
 .nyt-tove {
-  width: 100%;
-  height: 60px;
+  width: 70%;
+  height: 65px;
   object-fit: cover;
   object-position: center 50%;
   filter: grayscale(1) contrast(1.2);
   display: block;
-  margin-bottom: 1px;
+  margin: 4px auto 1px;
   flex-shrink: 0;
 }
 
 /* ── Drink items ── */
 .nyt-drink-item {
   border-bottom: 0.5px solid #ccc;
-  padding: 3px 0;
+  padding: 2.5px 0;
   flex-shrink: 0;
+  text-align: center;
 }
 .nyt-drink-last { border-bottom: none; }
 .nyt-drink-name {
@@ -796,7 +798,7 @@
   padding-top: 2px;
   margin-top: 2px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 5px;
+  font-size: 1px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   color: #555;
