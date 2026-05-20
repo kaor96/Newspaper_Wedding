@@ -359,6 +359,14 @@ function buildTemplateSheet() {
     `<div class="print-template">${template.render(null, edits, articleToggle)}</div>`;
 }
 
+function buildFullSheet() {
+  const { template, photoDataUrl, photoPositionX, photoPositionY, edits, articleToggle } = state;
+  $('printSheet').innerHTML =
+    `<div class="print-template">${template.render(photoDataUrl, edits, articleToggle)}</div>`;
+  const img = $('printSheet').querySelector('.photo-slot .photo-img');
+  if (img) img.style.objectPosition = `${photoPositionX}% ${photoPositionY}%`;
+}
+
 function buildPrintSheet() {
   const { template, photoDataUrl, photoPositionX, photoPositionY } = state;
   setPrintVars(template.photoPrint);
@@ -377,6 +385,12 @@ function wireEvents() {
 
   $('editorTemplatePrint').addEventListener('click', () => {
     buildTemplateSheet();
+    window.print();
+  });
+
+  $('editorFullPrint').addEventListener('click', () => {
+    if (!state.photoDataUrl) { alert('Agrega una foto antes de imprimir completo.'); return; }
+    buildFullSheet();
     window.print();
   });
 

@@ -15,7 +15,7 @@ const TEMPLATES = [
   {
     id: 'comercio',
     name: 'El Comercio',
-    photoPrint: { top: 53, left: 5, width: 88, height: 69 },
+    photoPrint: { top: 62, left: 5, width: 89, height: 79 },
     defaults: { caption: 'Kevin y Karie · 29 de mayo, 2026 · Quito, Ecuador' },
     articles: {
       futbol: {
@@ -151,7 +151,7 @@ const TEMPLATES = [
   {
     id: 'nytimes',
     name: 'The New York Times',
-    photoPrint: { top: 67, left: 139, width: 60, height: 105 },
+    photoPrint: { top: 67, left: 139, width: 60, height: 93 },
     defaults: {
       headline: 'Local Guest Photographed at Historic Quito Wedding',
       caption:  'Kevin & Karie · May 29, 2026 · Quito, Ecuador'
