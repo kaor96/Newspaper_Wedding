@@ -667,9 +667,9 @@
   overflow: hidden;
   padding-right: 4px;
 }
-.nyt-mainstory-col + .nyt-mainstory-col {
-  padding-right: 10px;
-  padding-left: 9px;
+.nyt-vcol-rule + .nyt-mainstory-col {
+  padding-right: 1px;
+  padding-left: 2px;
 }
 
 .nyt-photocol {
@@ -718,9 +718,9 @@
   flex-direction: column;
 }
 .nyt-lower-col:first-child { flex: 0.75; }
-.nyt-lower-col + .nyt-lower-col {
+.nyt-vcol-rule + .nyt-lower-col {
   padding-right: 10px;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 .nyt-col-hl {
