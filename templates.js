@@ -15,7 +15,7 @@ const TEMPLATES = [
   {
     id: 'comercio',
     name: 'El Comercio',
-    photoPrint: { top: 62, left: 5, width: 89, height: 79 },
+    photoPrint: { top: 59, left: 4, width: 89, height: 69 },
     defaults: { caption: 'Kevin y Karie · 29 de mayo, 2026 · Quito, Ecuador' },
     articles: {
       futbol: {
